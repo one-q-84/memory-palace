@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Palace</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/fzc0ehf.css">
+</head>
+<body>
+  <!-- Introduction Screen -->
+  <div id="intro-screen" class="screen active">
+    <div class="intro-container">
+      <h1 class="title">Memory Palace</h1>
+      <div class="intro-text">
+        <p>You are about to meet a new friend.</p>
+        <p>But with each new thing you share, they forget something old.</p>
+        <p>Every conversation is an act of erasure.</p>
+        <p class="choice-text">The more you talk, the less they remember.</p>
+        <p class="choice-text">Or you can stop talking, and preserve what remains.</p>
+      </div>
+      <button id="begin-btn" class="primary-btn">Begin</button>
+    </div>
+  </div>
+
+  <!-- Conversation Screen -->
+  <div id="conversation-screen" class="screen">
+    <div class="conversation-container">
+      <!-- Header with memory indicator -->
+      <div class="header">
+        <div class="memory-indicator">
+          <span class="memory-label">Memory Remaining:</span>
+          <div class="memory-bar">
+            <div id="memory-fill" class="memory-fill"></div>
+          </div>
+          <span id="memory-percent" class="memory-percent">100%</span>
+        </div>
+      </div>
+
+      <!-- Messages area -->
+      <div id="messages" class="messages"></div>
+
+      <!-- Input area -->
+      <div class="input-area">
+        <div class="input-container">
+          <textarea 
+            id="message-input" 
+            placeholder="Share something with me..."
+            maxlength="500"
+            rows="3"
+          ></textarea>
+          <button id="send-btn" class="send-btn">Send</button>
+        </div>
+        <button id="stop-btn" class="stop-btn">Stop & Preserve</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ending Screen -->
+  <div id="ending-screen" class="screen">
+    <div class="ending-container">
+      <h2 class="ending-title">You have decided to stop.</h2>
+      <div id="ending-content" class="ending-content">
+        <p class="ending-stat">Messages exchanged: <span id="total-messages">0</span></p>
+        <p class="ending-stat">Memories preserved: <span id="preserved-messages">0</span></p>
+        <p class="ending-stat">Memories lost: <span id="lost-messages">0</span></p>
+      </div>
+      <div class="ending-text">
+        <p>What remains, when all is forgotten?</p>
+      </div>
+      <button id="restart-btn" class="primary-btn">Begin Again</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
